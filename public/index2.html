@@ -1,0 +1,162 @@
+<!DOCTYPE html >
+<html class="full" lang="en">
+<!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Nokia</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/full.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<script src="js/angular.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>
+<script src="script/app.js"></script>
+<script>
+  
+</script>
+</head>
+
+<body ng-app="defultApp" ng-controller="defultController">
+   <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top info" role="navigation" style="background-color: #F7FCF7;" id="info" ng-show="cbrsSecondLinkActivated" >
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                 
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a  style="fill-color:black;" ng-click="requestForReset()" ><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span> Reset</button></a>
+                    </li>
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-cog"></span> Settings</button>
+                      </a>
+                      <ul class="dropdown-menu" style="background-color: #D2D8D2;">
+                        <li><a  ng-click="requestForMode('false')"><button type="button" class="btn btn-default btn-md">Online Mode</button></a></li>
+                        <li><a  ng-click="requestForMode('true')"><button type="button" class="btn btn-default">Offline Mode</button></a></li>
+                      </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#" style="background-color: blue; color: white"> View Presentation</a></li>
+                  <li>&nbsp;&nbsp;</li>
+                  <li><a href="#" style="background-color: green; color: white"> Nokia Site</a></li>
+                </ul>
+            </div>
+
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div id="oval"  ng-show="carrier1Up"></div>
+    <div id="oval2" ng-show="carrier2Up"></div>
+    <div id="oval3" ng-show="carrier3Up"></div>
+    <div id="oval4" ng-show="carrier4Up"></div>
+    <div id="oval5" ng-show="carrier5Up"></div>
+    <div id="oval6" ng-show="carrier6Up"></div>
+    <div id="oval7" ng-show="carrier7Up"></div>
+    <div class="navbar-fixed-bottom" style="margin-bottom: 5%;margin-left: 0px !importent; margin-right: 0px !importent;">    
+      <div class="row" >
+        <div class="col-sm-2" style="min-height: 120px;width: 120px;margin-left: 20px">
+          <div class="well" style="background-color:#edf0f4;min-height: 120px;width: 120px;"  ng-hide="activateCbrs">
+            <div class="content">
+                NOKIA Bell Labs SAS<br>
+                <b>{{sas}}</b>
+            </div>
+          </div>
+          <div class="well" style="background-color:#42E604;min-height: 120px;width: 120px;" ng-click="activateCbrsLink()" ng-show="activateCbrs">
+            <div class="content">
+                NOKIA Bell Labs SAS<br>
+                <b>{{sas}}</b>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2" style="min-height: 100px;width: 180px;margin-left: 10px"> 
+          <div class="well" style="background-color:#edf0f4;width: 240px;">
+            <div class="content">
+                <p style="font-size: 10px;">FDD Downlink Througt Put</p>
+                <b>{{throughputForFdd}}</b>
+                <p style="font-size: 12px;">CARRIER1: <a ng-style="carrier1Style">{{carrier1}} </a></p>
+                <p style="font-size: 12px;">CARRIER2: <a ng-style="carrier2Style">{{carrier2}} </a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2" style="min-height: 100px;width: 230px;margin-left: 70px"> 
+          <div class="well" style="background-color:#edf0f4;min-height: 100px;width: 230px; ">
+            <div class="content">
+                <p style="font-size: 10px;">CBRS Downlink Througt Put</p>
+                <b>{{throughputForCbrs}}</b>
+                <p style="font-size: 12px;">CARRIER1: <a ng-style="carrier3Style">{{carrier3}} </a></p>
+                <p style="font-size: 12px;">CARRIER2: <a ng-style="carrier4Style">{{carrier4}} </a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2" style="min-height: 120px;width: 120px;margin-left: 10px" > 
+          <div class="well" style="background-color:#339CFF;width: 120px; ">
+            <div class="content">
+                <p style="font-size: 10px;">Total Downlink Through Put</p>
+                <b>{{totalThroughput}}</b>
+            </div>
+          </div>
+        </div> 
+        <div class="col-sm-2" style="min-height: 120px;width: 120px;margin-left: 10px" ng-show="activeOnReciveCbrs"> 
+          <div class="well" style="background-color:#E0E1E1;" ng-hide="activateRadar">
+            <div class="content">
+                <p style="font-size: 10px;">Radar</p>
+                <img src="img/radar2.png" height="64" width="64">
+            </div>
+          </div>
+          <div class="well" style="background-color:#1BEF0D;min-height: 100px;width: 120px;" ng-show="activateRadar" ng-click="activateRaderLink()">
+            <div class="content">
+                <p style="font-size: 10px;">Radar</p>
+                <img src="img/radar2.png" height="50" width="50">
+            </div>
+          </div>
+        </div>     
+        <div class="col-sm-2" ng-show="activeOnReciveCbrs"> 
+          <div class="well" style="background-color:;min-height: 100px;width: 120px;margin-left: 10px" >
+            <div class="content">
+                
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div><br>
+    <footer>
+      <div class="container">
+        
+      </div>
+    </footer>
+   <!-- Put your page content here! -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

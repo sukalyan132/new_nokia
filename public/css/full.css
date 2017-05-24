@@ -1,0 +1,163 @@
+/*
+ * Start Bootstrap - Full (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    margin-top: -25px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+/* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
+
+.full {
+    background: url('../img/bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+.square {
+    float:left;
+    position: absolute;
+    width: 30%;
+    padding-bottom: 30%; /* = width for a 1:1 aspect ratio */
+    margin:1.66%;
+   overflow:hidden;
+}
+
+    .navbar{
+    opacity:0;
+}
+
+
+.navbar:hover{
+    opacity:1;
+}
+#oval {
+    width: 1000px;
+    height: 200px;
+    background: #68D9E3;
+    -webkit-border-radius: 800px / 800px;
+    -moz-border-radius: 800px / 600px;
+    border-radius: 1000px / 400px;
+    position: absolute;
+left: 10%;
+top: 20%;
+
+z-index: 10;
+border: 1px solid;
+
+border: 2px solid #a1a1a1;
+opacity: 0.5
+}
+#oval2 {
+    width: 900px;
+    height: 180px;
+    background: #198892;
+    -webkit-border-radius: 800px / 800px;
+    -moz-border-radius: 800px / 600px;
+    border-radius: 1000px / 400px;
+    position: absolute;
+left: 15%;
+top: 20%;
+
+z-index: 10;
+border: 1px solid;
+
+border: 2px solid #a1a1a1;
+opacity: 0.5
+}
+#oval3 {
+    width: 600px;
+    height: 160px;
+    background: transparent;
+    -webkit-border-radius: 600px / 600px;
+    -moz-border-radius: 600px / 400px;
+    border-radius: 1000px / 400px;
+    position: absolute;
+left: 37%;
+top: 20%;
+
+z-index: 10;
+border: 1px solid;
+
+border: 2px solid #C0CF22;
+opacity: 0.5
+}
+#oval4 {
+    width: 400px;
+    height: 160px;
+    background: #02cc4c;
+    -webkit-border-radius: 400px / 400px;
+    -moz-border-radius: 400px / 133px;
+    border-radius: 1000px / 400px;
+    position: absolute;
+left: 53%;
+top: 20%;
+
+z-index: 10;
+border: 1px solid;
+
+border: 2px solid #C0CF22;
+opacity: 0.3
+}
+#oval5 {
+    width: 350px;
+    height: 160px;
+    background: #b5f21a;
+    -webkit-border-radius: 350px / 350px;
+    -moz-border-radius: 350px / 116px;
+    border-radius: 1000px / 400px;
+    position: absolute;
+left: 57%;
+top: 20%;
+
+z-index: 10;
+border: 1px solid;
+
+border: 2px solid #C0CF22;
+opacity: 0.5
+}
+#oval6 {
+    width: 400px;
+    height: 160px;
+    background: #e8c83e;
+    -webkit-border-radius: 400px / 400px;
+    -moz-border-radius: 400px / 133px;
+    border-radius: 1000px / 400px;
+    position: absolute;
+left: 53%;
+top: 20%;
+
+z-index: 10;
+border: 1px solid;
+
+border: 2px solid #C0CF22;
+opacity: 0.3
+}
+#oval7 {
+    width: 350px;
+    height: 160px;
+    background: #edac21;
+    -webkit-border-radius: 350px / 350px;
+    -moz-border-radius: 350px / 116px;
+    border-radius: 1000px / 400px;
+    position: absolute;
+left: 57%;
+top: 20%;
+
+z-index: 10;
+border: 1px solid;
+
+border: 2px solid #C0CF22;
+opacity: 0.5
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}

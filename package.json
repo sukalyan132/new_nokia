@@ -1,0 +1,27 @@
+{
+  "name": "nokia",
+  "version": "1.0.0",
+  "description": "nokia",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "Sukalyan",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "body-parser": "^1.16.0",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.6.0",
+    "express": "^4.14.0",
+    "jade": "^1.11.0",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.3.2",
+    "socket.io": "^1.7.2",
+    "websocket": "^1"
+  }
+}
